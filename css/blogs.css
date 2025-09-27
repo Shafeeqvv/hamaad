@@ -52,14 +52,23 @@
 	padding: 100px 0;
 }
 
+
 .blog-items .blog-item .image {
-	margin: 0 0 25px 0;
-	font-size: 0;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center; /* centers horizontally */
+    align-items: center;     /* centers vertically */
 }
 
 .blog-items .blog-item .image img {
-	max-width: 100%;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 20px;
+    object-fit: cover; /* fills container, keeps aspect ratio */
 }
+
 
 .blog-items .blog-item .name {
 	display: block;

@@ -61,18 +61,28 @@ $(function () {
 		});
 	}
 
-	/* Open Top Menu */
-	$('.page').on('click', '.menu-btn', function(){
-		if($('.top-menu').hasClass('active')){
-			$('.top-menu').removeClass('active');
-			$(this).removeClass('active');
-		} else {
-			$('.top-menu').addClass('active');
-			$(this).addClass('active');
-		}
-
-		return false;
+	/* Open/Close Top Menu */
+	$('.page').on('click', '.menu-btn', function(e){
+	    e.stopPropagation(); // prevent bubbling
+	    $('.top-menu').toggleClass('active');
+	    $(this).toggleClass('active');
+	    return false;
 	});
+
+	/* Auto Close on Link Click */
+	$('.page').on('click', '.top-menu a', function(){
+	    $('.top-menu').removeClass('active');
+	    $('.menu-btn').removeClass('active');
+	});
+
+	/* Close on Outside Click */
+	$(document).on('click', function(e){
+	    if(!$(e.target).closest('.top-menu, .menu-btn').length){
+	        $('.top-menu').removeClass('active');
+	        $('.menu-btn').removeClass('active');
+	    }
+	});
+
 	
 	/* Hide mouse button on scroll */
 	$(window).on('scroll', function() {
@@ -236,3 +246,14 @@ $(function () {
 
 });
 
+/* Optional: subtle accessibility improvement - close mobile keyboard before opening WA or add tracking */
+document.getElementById('whatsapp-pop').addEventListener('click', function(e){
+  // On some mobile browsers, collapsing the on-screen keyboard is nicer before navigating.
+  if(document.activeElement && ['INPUT','TEXTAREA'].includes(document.activeElement.tagName)){
+    document.activeElement.blur();
+  }
+  // If you want to open with a custom message, uncomment and modify:
+  // const phone = '1234567890';
+  // const text = encodeURIComponent('Hi! I need help with...');
+  // this.href = `https://wa.me/${phone}?text=${text}`;
+});

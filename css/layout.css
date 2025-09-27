@@ -272,6 +272,7 @@
 	font-size: 34px;
 	line-height: 44px;
 	font-weight: 400;
+	text-align: center;
 }
 
 @media (max-width: 1079px) {
@@ -604,6 +605,7 @@
 /* 8. Footer */
 footer {
 	padding: 120px 0;
+	background-color: #f9f9f9;
 }
 
 @media (max-width: 720px) {
