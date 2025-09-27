@@ -28,7 +28,7 @@
 
 @media (max-width: 1079px) {
 	.header.filled {
-		padding: 30px 0;
+		padding: 10px 0;
 	}
 
 }
@@ -52,7 +52,7 @@
 
 @media (max-width: 1079px) {
 	.header {
-		padding: 30px 0;
+		padding: 10px 0;
 	}
 
 }
